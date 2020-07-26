@@ -1,15 +1,19 @@
 
 function secondLargest(values) {
-    let largest
-    let secondLargest
-    for (let i = 0; i < values.length; i++)
-        if (values[i] > largest) {
-            secondLargest = largest
-            largest = values[i]
+    let secondLargest = 0;
+    let slIndex = 0;
+    for (let i = 0; i < values.length; i++) {
+        if (values[i] > values[slIndex]) {
+            slIndex = i;
         }
-        else if (secondLargest < values[i] && values[i] < largest) {
+
+    }
+    for (let i = 0; i < values.length; i++) {
+        if (values[i] > secondLargest && values[i] !== values[slIndex]) {
             secondLargest = values[i]
         }
+    }
+
     return secondLargest;
 
 }
